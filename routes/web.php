@@ -20,6 +20,10 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 
+//Admin
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
