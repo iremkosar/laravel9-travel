@@ -22,30 +22,32 @@
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="{{ asset('assets') }}/home/css/bootstrap.css" rel="stylesheet">
-    <link href="{{ asset('assets') }}/home/css/fontawesome-all.css" rel="stylesheet">
-    <link href="{{ asset('assets') }}/home/css/swiper.css" rel="stylesheet">
-	<link href="{{ asset('assets') }}/home/css/magnific-popup.css" rel="stylesheet">
-	<link href="{{ asset('assets') }}/home/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/fontawesome-all.css" rel="stylesheet">
+    <link href="{{ asset('assets') }}/css/swiper.css" rel="stylesheet">
+	<link href="{{ asset('assets') }}/css/magnific-popup.css" rel="stylesheet">
+	<link href="{{ asset('assets') }}/css/styles.css" rel="stylesheet">
 	
 	<!-- Favicon  -->
-    <link rel="icon" href="{{ asset('assets') }}/home/images/favicon.png">
+    <link rel="icon" href="{{ asset('assets') }}/images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
     
-    @yield('navbar')
-    @yield('header')
-    @yield('content')
-    @yield('footer')
+     @yield('navbar')  
+     @yield('header') 
+     @yield('content') 
+     @yield('footer') 
+    
+    
 
 
-    <script src="{{ asset('assets') }}/home/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="{{ asset('assets') }}/home/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="{{ asset('assets') }}/home/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="{{ asset('assets') }}/home/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="{{ asset('assets') }}/home/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="{{ asset('assets') }}/home/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="{{ asset('assets') }}/home/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="{{ asset('assets') }}/home/js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="{{ asset('assets') }}/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="{{ asset('assets') }}/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="{{ asset('assets') }}/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="{{ asset('assets') }}/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="{{ asset('assets') }}/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="{{ asset('assets') }}/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="{{ asset('assets') }}/js/scripts.js"></script> <!-- Custom scripts -->
 </body>

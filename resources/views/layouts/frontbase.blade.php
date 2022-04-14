@@ -1,4 +1,4 @@
-<html>
+ <html>
     <head>
         <title>App Name - @yield('title')</title>
         @yield('head')
@@ -15,4 +15,4 @@
         <h1>Footer</h1>
         @yield('foot')
     </body>
-</html>
+</html> 

@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     public function index(){
-        return view(view: 'home.index');
+        //echo "ana sayfa";
+        //exit();
+         return view(view: 'home.index');
     }
 
     public function login(){
-        return view(view:'home.login');
+         return view(view:'home.login');
     }
 
     public function about(){
