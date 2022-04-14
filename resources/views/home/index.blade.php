@@ -1,13 +1,17 @@
-@extends('layouts.frontbase')
- 
-@section('title', 'Title from sub file')
- 
-@section('sidebar')
-    @parent
- 
-    <p>This is appended from sub file.</p>
+@extends('layouts.home')
+
+@section('navbar')
+    @include('home._navbar')
 @endsection
- 
+
+@section('header')
+    @include('home._header')
+@endsection
+
 @section('content')
-    <p>This is my body content.</p>
+    @include('home._content')
+@endsection
+
+@section('footer')
+    @include('home._footer')
 @endsection

@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use Laravel\Jetstream\Rules\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,38 +13,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// 1-Write in route
-Route::get('/hello', function () {
-    return 'Hello World';
-});
-// 2- Call view in route
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/* Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// 3- Call Controller Function
-Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/about', [HomeController::class, 'about'])->name('about'); */
 
-// 4- Route-> Controller->View
-Route::get('/test', [HomeController::class,'test'])->name('test');
-// 5- Route with parameters
-Route::get('/param/{id}/{number}', [HomeController::class,'param'])->name('param');
-// 6- Route with post
-Route::post('/save', [HomeController::class,'save'])->name('save');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
+Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome')->middleware('auth');
+Route::get('/admin/login', [App\Http\Controllers\Admin\HomeController::class, 'login'])->name('adminLogin');
+Route::post('/admin/logincheck', [App\Http\Controllers\Admin\HomeController::class, 'loginCheck'])->name('adminLoginCheck');
+Route::get('/admin/logout', [App\Http\Controllers\Admin\HomeController::class, 'logout'])->name('adminLogout');
+Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

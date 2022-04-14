@@ -3,34 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    //
-    public function index()
-    {
-       return view('home.index');
-   }
-    public function test()
-    {
-       return view('home.test');
-   }
-   public function param($id,$number)
-    {
-        //echo "Paramater 1:",$id;
-       // echo "<br>Paramater 2:",$number;
-       // echo "<br>Sum Parameters :", $id+$number;
-       return view('home.test2',
-       [
-        'id' => $id,
-        'number' =>$number
-       ]);
-   }
+    public function index(){
+        return view(view: 'home.index');
+    }
 
-   public function save()
-   {
-      echo "Save Function<br>";
-      echo "First Name :",$_REQUEST["fname"];
-      echo "Last Name :",$_REQUEST["lname"]; 
-  }
+    public function login(){
+        return view(view:'home.login');
+    }
+
+    public function about(){
+        return view(view:'home.about');
+    }
+
+    public function loginCheck(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $credentials = $request->only('email','password');
+
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+                return redirect()->intended('home');
+            }
+
+            return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+        }
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }
