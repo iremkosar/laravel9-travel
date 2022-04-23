@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Laravel\Jetstream\Rules\Role;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,11 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 //Admin Routes
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome');
 //Admin Category Routes
-Route::get('/admin/category', [App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin_category');
-Route::get('/admin/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('admin_category_create');
-Route::post('/admin/category/store', [App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('admin_category_store');
+Route::get('/admin/category', [AdminCategoryController::class, 'index'])->name('admin_category');
+Route::get('/admin/category/create', [AdminCategoryController::class, 'create'])->name('admin_category_create');
+Route::post('/admin/category/store', [AdminCategoryController::class, 'store'])->name('admin_category_store');
+Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
+Route::post('/admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
 
 
 
