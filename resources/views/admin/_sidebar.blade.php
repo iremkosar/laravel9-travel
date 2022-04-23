@@ -1,11 +1,9 @@
-<div class="full_container">
-         <div class="inner_container">
 <!-- Sidebar  -->
 <nav id="sidebar">
                <div class="sidebar_blog_1">
                   <div class="sidebar-header">
                      <div class="logo_section">
-                        <a href="index.html"><img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="index.html"><img class="logo_icon img-responsive" src="{{ asset('assets') }}/admin/images/logo/logo_icon.png" alt="#" /></a>
                      </div>
                   </div>
                   <div class="sidebar_user_info">

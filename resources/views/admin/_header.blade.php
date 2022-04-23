@@ -1,4 +1,5 @@
-<div class="topbar">
+ <!-- topbar -->
+ <div class="topbar">
                   <nav class="navbar navbar-expand-lg navbar-light">
                      <div class="full">
                         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
@@ -27,4 +28,5 @@
                         </div>
                      </div>
                   </nav>
-               </div>
+</div>
+               <!-- end topbar -->
