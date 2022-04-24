@@ -3,43 +3,25 @@
 
 
 @section('content')
-<!-- <form action="{{ route('admin_category_create') }}" method="POST"> -->
-    <!-- @csrf
-    <div class="form-group">
-      <label for="exampleFormControlInput1">slug</label>
-      <input type="text" class="form-control" name="slug">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">keywords</label>
-      <input type="text" class="form-control" name="keywords"  >
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select name="parent_id" class="form-control" id="exampleFormControlSelect1">
-        </select>
-      </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">description</label>
-      <input type="text" class="form-control" name="description"  >
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">title</label>
-      <input type="text" class="form-control" name="title"  >
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form> -->
-  <!-- partial -->
+
   <div class="main-panel">
         <div class="content-wrapper">
             <h1> Add Category </h1>
             <div class="row">
+
+            <span style="margin:20px; margin-left:395px;" class="col-sm-3">
+                  <ol class="breadcrumb " style="margin:20px;">
+                    <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                    <li class="breadcrumb-item active"> Add Category</li>
+                  </ol>
+                  </span>
 
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Category Elements</h4>
                         <p class="card-description">  </p>
-                        <form class="forms-sample" action="/admin/category/store" method="post">
+                        <form class="forms-sample" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
@@ -63,9 +45,7 @@
                                 <input type="file" class="custom-file-input" name="image">
                                         <label class="custom-file-label" for="exampleInputFile">Choose image file</label>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class = "input-group-text" id="">Upload</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
 

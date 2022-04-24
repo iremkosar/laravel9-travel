@@ -22,14 +22,19 @@ Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCh
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 //Admin Routes
-Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminHome');
+Route::prefix('admin')->name('admin.')->group(function () {
+Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
 //Admin Category Routes
-Route::get('/admin/category', [AdminCategoryController::class, 'index'])->name('admin_category');
-Route::get('/admin/category/create', [AdminCategoryController::class, 'create'])->name('admin_category_create');
-Route::post('/admin/category/store', [AdminCategoryController::class, 'store'])->name('admin_category_store');
-Route::get('/admin/category/edit/{id}', [AdminCategoryController::class, 'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}', [AdminCategoryController::class, 'update'])->name('admin_category_update');
-
+Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
+Route::get('/', 'index')->name('index');
+Route::get('/create', 'create')->name('create');
+Route::post('/store', 'store')->name('store');
+Route::get('/edit/{id}', 'edit')->name('edit');
+Route::post('/update/{id}', 'update')->name('update');
+Route::get('/destroy/{id}', 'destroy')->name('destroy');
+Route::get('/show/{id}', 'show')->name('show');
+});
+});
 
 
 

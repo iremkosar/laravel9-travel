@@ -28,6 +28,7 @@
                      <li><a href="/admin/profile"><i class="fa fa-spinner"></i> <span>Profile</span></a></li><br>
                      <li><a href="/admin/setting"><i class="fa fa-wrench"></i> <span>Settings</span></a></li>
 
+
                      <!-- <li><a href="settings.html"><i class="fa fa-cog yellow_color"></i> <span>Settings</span></a></li> -->
                   
                </div>
