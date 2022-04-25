@@ -24,13 +24,10 @@
                             Id
                         </th>
                         <th>
+                           Parent
+                        </th>
+                        <th>
                             Title
-                        </th>
-                        <th>
-                           Keywords
-                        </th>
-                        <th>
-                           Decription
                         </th>
                         <th>
                             Image
@@ -53,16 +50,14 @@
                   @foreach( $data as $rs)
                   <tr>
                     <td>{{$rs->id}}</td>
-                    <td>{{$rs->title}}</td>
-                    <td>{{$rs->keywords}}</td>
-                    <td>{{$rs->description}}</td>
                     <td>
-
+                            {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}
+                        </td>
+                    <td>{{$rs->title}}</td>
+                    <td>
                            @if ($rs->image)
                                   <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                             @endif
-
-
                     </td>
                     <td>{{$rs->status}}</td>
                     <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
