@@ -148,5 +148,15 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, molestiae. 
+                    
+                </p> <button type="button" class="btn btn-primary">Primary</button>
+            </div>
+            <div class="col-sm-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla saepe autem ipsum, provident commodi modi expedita neque rerum, veniam aliquam recusandae. Eius qui rem aspernatur, aperiam fugit voluptatem iste ea.
+            </div>
+        </div>
     </div> <!-- end of container -->
 </div> 

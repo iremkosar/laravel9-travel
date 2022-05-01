@@ -77,3 +77,4 @@
 @section('footer')
     @include('admin._footer')
 @endsection
+

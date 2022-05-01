@@ -44,8 +44,10 @@
 
             <div id="content">
                @include('admin._header')
-               @yield('content')
-               @include('admin._footer')
+               <div class="midde_cont">
+                  @yield('content')
+                  @include('admin._footer')
+               </div>
             </div>
        
        

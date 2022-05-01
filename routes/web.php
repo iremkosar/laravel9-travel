@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Laravel\Jetstream\Rules\Role;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\Admin\AdminPlaceController as AdminPlaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,20 @@ Route::post('/update/{id}', 'update')->name('update');
 Route::get('/destroy/{id}', 'destroy')->name('destroy');
 Route::get('/show/{id}', 'show')->name('show');
 });
-});
 
+//Admin Place Routes
+Route::prefix('/place')->name('place.')->controller(AdminPlaceController::class)->group(function () {
+Route::get('/', 'index')->name('index');
+Route::get('/create', 'create')->name('create');
+Route::post('/store', 'store')->name('store');
+Route::get('/edit/{id}', 'edit')->name('edit');
+Route::post('/update/{id}', 'update')->name('update');
+Route::get('/destroy/{id}', 'destroy')->name('destroy');
+Route::get('/show/{id}', 'show')->name('show');
+ });
+
+
+});
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

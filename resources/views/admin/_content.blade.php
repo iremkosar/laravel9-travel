@@ -1,7 +1,4 @@
-<div id="content">
-               <!-- dashboard inner -->
-               <div class="midde_cont">
-                  <div class="container-fluid">
+<div class="container-fluid">
                      <div class="row column_title">
                         <div class="col-md-12">
                            <div class="page_title">
@@ -190,17 +187,17 @@
                                              <!-- Wrapper for carousel items -->
                                              <div class="carousel-inner">
                                                 <div class="item carousel-item active">
-                                                   <div class="img-box"><img src="{{ asset('assets') }}/admin/images/layout_img/user_img.jpg" alt=""></div>
+                                                   <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
                                                    <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
                                                    <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                                 </div>
                                                 <div class="item carousel-item">
-                                                   <div class="img-box"><img src="{{ asset('assets') }}/admin/images/layout_img/user_img.jpg" alt=""></div>
+                                                   <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
                                                    <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
                                                    <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                                 </div>
                                                 <div class="item carousel-item">
-                                                   <div class="img-box"><img src="{{ asset('assets') }}/admin/images/layout_img/user_img.jpg" alt=""></div>
+                                                   <div class="img-box"><img src="images/layout_img/user_img.jpg" alt=""></div>
                                                    <p class="testimonial">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae..</p>
                                                    <p class="overview"><b>Michael Stuart</b>Seo Founder</p>
                                                 </div>
@@ -303,7 +300,7 @@
                                  <div class="msg_list_main">
                                     <ul class="msg_list">
                                        <li>
-                                          <span><img src="{{ asset('assets') }}/admin/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                                          <span><img src="images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
                                           <span>
                                           <span class="name_user">Herman Beck</span>
                                           <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
@@ -311,7 +308,7 @@
                                           </span>
                                        </li>
                                        <li>
-                                          <span><img src="{{ asset('assets') }}/admin/images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
+                                          <span><img src="images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
                                           <span>
                                           <span class="name_user">John Smith</span>
                                           <span class="msg_user">On the other hand, we denounce.</span>
@@ -319,7 +316,7 @@
                                           </span>
                                        </li>
                                        <li>
-                                          <span><img src="{{ asset('assets') }}/admin/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                                          <span><img src="images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
                                           <span>
                                           <span class="name_user">John Smith</span>
                                           <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
@@ -327,7 +324,7 @@
                                           </span>
                                        </li>
                                        <li>
-                                          <span><img src="{{ asset('assets') }}/admin/images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
+                                          <span><img src="images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
                                           <span>
                                           <span class="name_user">John Smith</span>
                                           <span class="msg_user">On the other hand, we denounce.</span>
