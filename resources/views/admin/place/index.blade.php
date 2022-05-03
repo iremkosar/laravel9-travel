@@ -42,6 +42,9 @@
                             Image
                         </th>
                         <th>
+                            Image Gallery
+                        </th>
+                        <th>
                             Status
                         </th>
                         <th>
@@ -71,6 +74,13 @@
                                   <img src="{{Storage::url($rs->image)}}" style="height: 40px">
                             @endif
                     </td>
+
+                  <td> <a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
+                  onclick="return !window.open(this.href, '','top=50 left=100 width=1100 height=700')">
+                            <img src="{{ asset('assets') }}/admin/img/gallery.png" style="height: 40px">
+                       </a>            
+                  </td>
+
                     <td>{{$rs->status}}</td>
                     <td><a href="{{route('admin.place.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
                     <td><a href="{{route('admin.place.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>       

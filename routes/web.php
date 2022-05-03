@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use Laravel\Jetstream\Rules\Role;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\AdminPlaceController as AdminPlaceController;
+use App\Http\Controllers\Admin\ImageController as AdminImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,12 @@ Route::get('/destroy/{id}', 'destroy')->name('destroy');
 Route::get('/show/{id}', 'show')->name('show');
  });
 
+ //Admin Place Image Gallery Routes
+Route::prefix('/image')->name('image.')->controller(AdminImageController::class)->group(function () {
+    Route::get('/{pid}', 'index')->name('index');
+    Route::post('/store/{pid}', 'store')->name('store');
+    Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
+     });
 
 });
 

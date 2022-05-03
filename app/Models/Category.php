@@ -10,15 +10,16 @@ class Category extends Model
     use HasFactory;
 
     #one To Many
+    protected $appends = [
+        'parent'
+   ];
 
     public function places()
     {
         return $this->hasMany(Place::class);
     }
 
-    // protected $appends = [
-    //     'parent'
-    // ];
+    
 
     // public function place(){
     //     return $this->hasMany(Place::class);

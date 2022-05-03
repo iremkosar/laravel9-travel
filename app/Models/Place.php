@@ -9,6 +9,10 @@ class Place extends Model
 {
     use HasFactory;
 
+    protected $appends = [
+        'children'
+   ];
+
     # many to one
     public function category()
     {
