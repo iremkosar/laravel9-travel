@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 @section('title','Edit Place : '.$data->title)
 
+@section('head')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"></script>
+
+@endsection
 
 @section('content')
         <div class="main-panel">
@@ -52,7 +56,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Detail</label>
-                                <input type="text" class="form-control" name="detail" value="{{$data->detail}}">
+                                <textarea class="form-control" id="detail" name="detail">
+                                          {{$data->detail}}
+                                </textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Price</label>
@@ -102,8 +108,17 @@
 @endsection
 
 
-@section('footer')
-    @include('admin._footer')
+
+
+<!-- @section('footer') -->
+@section('foot')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+            <script>
+                $(function(){
+                    $('.textarea').summernote()
+                })
+            </script>
+    <!-- @include('admin._footer') -->
 @endsection
 
 
