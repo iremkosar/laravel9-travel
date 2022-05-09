@@ -11,8 +11,10 @@ class HomeController extends Controller
     public function index()
     {
         $sliderdata=Place::limit(4)->get();
+        $placelist1=Place::limit(6)->get();
         return view('home.index',[
-            'sliderdata' => $sliderdata
+            'sliderdata' => $sliderdata,
+            'placelist1' => $placelist1
         ]);
     }
 

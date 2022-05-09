@@ -1,8 +1,9 @@
 <!-- Carousel Start -->
 <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
-       @foreach ($sliderdata as $rs)
+             
             <div class="carousel-inner">
+            @foreach ($sliderdata as $rs)
                 <div class="carousel-item  @php if($rs->id == 12) echo 'active'; @endphp">
                     
                      <img class="w-100" src="{{Storage::url($rs->image)}}" style="width: 1920px; height: 1080px" alt="Image"> 
@@ -14,8 +15,9 @@
                         </div>
                     </div>
                 </div>
+            @endforeach    
             </div>
-        @endforeach    
+             
             
             <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
                 <div class="btn btn-dark" style="width: 45px; height: 45px;">
