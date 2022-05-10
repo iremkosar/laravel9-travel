@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Place;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,16 @@ class HomeController extends Controller
         return view('home.index',[
             'sliderdata' => $sliderdata,
             'placelist1' => $placelist1
+        ]);
+    }
+
+    public function place($id)
+    {
+        $data= Place::find($id);
+        $images=DB::table('images')->where('place_id',$id)->get();
+        return view('home.place',[
+            'data' => $data,
+            'images' => $images
         ]);
     }
 

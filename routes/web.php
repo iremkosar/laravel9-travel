@@ -57,6 +57,7 @@ Route::prefix('/image')->name('image.')->controller(AdminImageController::class)
 
 });
 
+Route::get('/place/{id}', [HomeController::class, 'place'])->name('place');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

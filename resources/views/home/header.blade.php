@@ -54,7 +54,9 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="{{asset('assets')}}/blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="{{asset('assets')}}/single.html" class="dropdown-item">Blog Detail</a>
+                                <!-- <a href="{{asset('assets')}}/single.html" class="dropdown-item">Blog Detail</a> -->
+                                <a href="{{route('place',['id'=>$rs->id])}}" class="dropdown-item">Blog Detail</a>
+
                                 <a href="{{asset('assets')}}/destination.html" class="dropdown-item">Destination</a>
                                 <a href="{{asset('assets')}}/guide.html" class="dropdown-item">Travel Guides</a>
                                 <a href="{{asset('assets')}}/testimonial.html" class="dropdown-item">Testimonial</a>
