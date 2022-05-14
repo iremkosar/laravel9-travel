@@ -32,11 +32,15 @@
         </div>
     </div>
     <!-- Topbar End -->
-
-
+    
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+
+          @php
+            $mainCategories= \App\Http\Controllers\HomeController::maincategorylist();
+          @endphp
+
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
                     <h1 class="m-0 text-primary"><span class="text-dark">TRAVEL</span>ER</h1>
@@ -50,16 +54,14 @@
                         <a href="{{asset('assets')}}/about.html" class="nav-item nav-link">About</a>
                         <a href="{{asset('assets')}}/service.html" class="nav-item nav-link">Services</a>
                         <a href="{{asset('assets')}}/package.html" class="nav-item nav-link">Tour Packages</a>
+                       
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="{{asset('assets')}}/blog.html" class="dropdown-item">Blog Grid</a>
-                                <!-- <a href="{{asset('assets')}}/single.html" class="dropdown-item">Blog Detail</a> -->
-                                <a href="{{route('place',['id'=>$rs->id])}}" class="dropdown-item">Blog Detail</a>
-
-                                <a href="{{asset('assets')}}/destination.html" class="dropdown-item">Destination</a>
-                                <a href="{{asset('assets')}}/guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="{{asset('assets')}}/testimonial.html" class="dropdown-item">Testimonial</a>
+                            @foreach($mainCategories as $rs)
+                                <a href="{{asset('assets')}}/blog.html" class="dropdown-item">{{$rs->title}}</a>
+                            
+                            @endforeach
                             </div>
                         </div>
                         <a href="{{asset('assets')}}/contact.html" class="nav-item nav-link">Contact</a>

@@ -9,9 +9,10 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>@yield('title')</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
+      <meta name="description" content="@yield('description')">
+      <meta name="keywords" content="@yield('keywords')">
+      <meta name="author" content="İrem Kosar">
+      <link rel="icon" type="image/x-icon" href="@yield('icon')">
       <!-- site icon -->
       <link rel="icon" href="{{ asset('assets') }}/admin/images/fevicon.png" type="image/png" />
       <!-- bootstrap css -->

@@ -19,9 +19,17 @@ class Category extends Model
         return $this->hasMany(Place::class);
     }
 
-    
+    #One To Many Iverse
+    public function parent()
+    {
+        return $this->belongsTo(Category::class,'parent_id');
+    }
 
-    // public function place(){
-    //     return $this->hasMany(Place::class);
-    // }
+     #One To Many
+     public function children()
+     {
+         return $this->hasMany(Category::class,'parent_id');
+     }
+
+
 }

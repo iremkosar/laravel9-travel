@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use Laravel\Jetstream\Rules\Role;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\AdminPlaceController as AdminPlaceController;
 use App\Http\Controllers\Admin\ImageController as AdminImageController;
+use App\Http\Controllers\Admin\Setting as Setting;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,14 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+
+//General Routes
+Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+Route::post('/setting/update', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+
+
+
 //Admin Category Routes
 Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
 Route::get('/', 'index')->name('index');

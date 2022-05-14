@@ -2,18 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Place;
 use Illuminate\Support\Facades\DB;
+use App\Models\Setting;
 
 class HomeController extends Controller
 {
+    public static function maincategorylist()
+    {
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
+
     public function index()
     {
         $sliderdata=Place::limit(4)->get();
         $placelist1=Place::limit(6)->get();
+        $data= Setting::first();
+
         return view('home.index',[
+            'setting' => $data,
             'sliderdata' => $sliderdata,
             'placelist1' => $placelist1
         ]);
