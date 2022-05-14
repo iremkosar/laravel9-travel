@@ -5,6 +5,8 @@
 @section('keywords', $setting->keywords)
 @section('icon', Storage::url($setting->icon) ) 
 
+
+
 @section('slider')
     @include('home.slider')
 @endsection

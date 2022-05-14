@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'About Us | '. $setting->title)
+@section('title', 'References | '. $setting->title)
 @section('description', $setting->description)
 @section('keywords', $setting->keywords)
 @section('icon', Storage::url($setting->icon) ) 
@@ -9,8 +9,8 @@
  <div id="breadcrumb">
      <div class="container">
          <ul class="breadcrumb">
-             <li><a href='#'>Home / </a></li>
-             <li class="active"> About Us</li>
+             <li><a href="{{route('home')}}">Home / </a></li>
+             <li class="active"> References</li>
          </ul>
     </div>
 </div>  
@@ -21,7 +21,7 @@
 
 <div class="row">
     <div class="col-md-12"
-    {!! $setting->aboutus !!}
+    {!! $setting->references !!}
 </div>
 </div>
 </div>

@@ -50,8 +50,9 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="{{asset('assets')}}/index.html" class="nav-item nav-link active">Home</a>
-                        <a href="{{asset('assets')}}/about.html" class="nav-item nav-link">About</a>
+                        <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a> 
+                        <a href="{{route('about')}}" class="nav-item nav-link">About</a>
+                        <a href="{{route('references')}}" class="nav-item nav-link">References</a> 
                         <a href="{{asset('assets')}}/service.html" class="nav-item nav-link">Services</a>
                         <a href="{{asset('assets')}}/package.html" class="nav-item nav-link">Tour Packages</a>
                        
@@ -64,7 +65,7 @@
                             @endforeach
                             </div>
                         </div>
-                        <a href="{{asset('assets')}}/contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>

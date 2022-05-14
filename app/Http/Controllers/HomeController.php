@@ -9,6 +9,8 @@ use App\Models\Place;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
 
+
+
 class HomeController extends Controller
 {
     public static function maincategorylist()
@@ -29,6 +31,30 @@ class HomeController extends Controller
         ]);
     }
 
+    public function about()
+    {
+        $data= Setting::first();
+        return view('home.about',[
+            'setting' => $data,
+        ]);
+    }
+
+    public function references()
+    {
+        $data= Setting::first();
+        return view('home.references',[
+            'setting' => $data,
+        ]);
+    }
+
+    public function contact()
+    {
+        $data= Setting::first();
+        return view('home.contact',[
+            'setting' => $data,
+        ]);
+    }
+
     public function place($id)
     {
         $data= Place::find($id);
@@ -43,9 +69,9 @@ class HomeController extends Controller
          return view(view:'home.login');
     }
 
-    public function about(){
-        return view(view:'home.about');
-    }
+    // public function about(){
+    //     return view(view:'home.about');
+    // }
 
     public function loginCheck(Request $request)
     {

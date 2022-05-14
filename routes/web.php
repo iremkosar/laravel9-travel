@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; 
 use App\Http\Controllers\HomeController;
 use Laravel\Jetstream\Rules\Role;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -20,8 +20,13 @@ use App\Http\Controllers\Admin\Setting as Setting;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
+// Home Page Routes
+ Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/references', [HomeController::class, 'references'])->name('references');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 
