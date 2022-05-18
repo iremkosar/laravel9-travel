@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\AdminPlaceController as AdminPlaceController;
 use App\Http\Controllers\Admin\ImageController as AdminImageController;
 use App\Http\Controllers\Admin\Setting as Setting;
 use App\Http\Controllers\Admin\MessageController as MessageController;
+use App\Http\Controllers\Admin\FaqController as FaqController;
+use App\Models\Faq;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
+Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 
 
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
@@ -77,6 +80,17 @@ Route::get('/show/{id}', 'show')->name('show');
      Route::get('/show/{id}', 'show')->name('show');
     Route::post('/update/{id}', 'update')->name('update');
     Route::get('/destroy/{id}', 'destroy')->name('destroy');
+     });
+
+     //Admin Faq Routes
+    Route::prefix('/faq')->name('faq.')->controller(FaqController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    Route::get('/show/{id}', 'show')->name('show');
      });
 
 });

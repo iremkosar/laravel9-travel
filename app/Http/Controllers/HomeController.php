@@ -9,6 +9,7 @@ use App\Models\Place;
 use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
 use App\Models\Message;
+use App\Models\Faq;
 
 
 
@@ -53,6 +54,16 @@ class HomeController extends Controller
         $data= Setting::first();
         return view('home.contact',[
             'setting' => $data,
+        ]);
+    }
+
+    public function faq()
+    {
+        $data= Setting::first();
+        $datalist= Faq::all();
+        return view('home.faq',[
+            'setting' => $data,
+            'datalist' => $datalist
         ]);
     }
 

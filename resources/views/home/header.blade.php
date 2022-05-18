@@ -65,6 +65,7 @@
                             @endforeach
                             </div>
                         </div>
+                        <a href="{{route('faq')}}" class="nav-item nav-link">Faq</a>
                         <a href="{{route('contact')}}" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>

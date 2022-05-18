@@ -1,9 +1,14 @@
 @extends('layouts.admin')
-@section('title','Edit Place : '.$data->title)
+@section('title','Edit Faq : '.$data->title)
+@section('javascript')
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-@section('head')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 @endsection
 
 @section('content')
@@ -11,12 +16,12 @@
         <div class="content-wrapper">
           <div class="col-sm-12"> 
               <span class="col-sm-7">
-                 <h1> Edit Place : {{$data->title}} </h1>
+                 <h1> Edit Faq : {{$data->title}} </h1>
                </span>
                <span class="col-sm-2" style="margin-left:180px;">
                   <ol class="breadcrumb ">
                     <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                    <li class="breadcrumb-item active"> Edit Place</li>
+                    <li class="breadcrumb-item active"> Edit Faq</li>
                   </ol>
                 </span>
            </div> 
@@ -24,69 +29,26 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Place Elements</h4>
+                        <h4 class="card-title">Faq Elements</h4>
                         <p class="card-description">  </p>
-                        <form class="forms-sample" action="{{route('admin.place.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                        <form class="forms-sample" action="{{route('admin.faq.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group">
-                                            <label for="inputText3" class="col-form-label">Parent Category</label>
-                                            <select class="form-control" name="category_id">
-                                                @foreach ($datalist as $rs)
-                                                    <option value="{{ $rs->id }}"
-                                                        @if ($rs->id == $data->category_id) selected="selected" @endif>
-                                                        {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Title</label>
-                                <input type="text" class="form-control" name="title" value="{{$data->title}}">
+                                <label for="exampleInputEmail1">Question</label>
+                                <input type="text" class="form-control" name="question" value="{{$data->question}}">
                             </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Keywords</label>
-                                <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Description</label>
-                                <input type="text" class="form-control" name="description" value="{{$data->description}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Detail</label>
-                                <textarea class="form-control" id="detail" name="detail">
-                                          {{$data->detail}}
+                             <div class="form-group">
+                                <label for="exampleInputEmail1">Answer</label>
+                                <textarea class="form-control" id="answer" name="answer">
+                                          {{$data->answer}}
                                 </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Price</label>
-                                <input type="text" class="form-control" name="price" value="{{$data->price}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">City</label>
-                                <input type="text" class="form-control" name="city" value="{{$data->city}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Country</label>
-                                <input type="text" class="form-control" name="country" value="{{$data->country}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Location</label>
-                                <input type="text" class="form-control" name="location" value="{{$data->location}}">
-                            </div>
+                                <script>
+                                 $('#question').summernote();
+                                 $('#answer').summernote();
+                                  </script>
+                            </div> 
+                           
 
-                            <div class="form-group">
-                                <label for="exampleInputFile">Image</label>
-                                <div class ="input-group">
-                                    <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="image">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose image file</label>
-                                    </div>
-                                    
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status">
@@ -108,17 +70,6 @@
 @endsection
 
 
-
-
-
-@section('foot')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-            <script>
-                $(function(){
-                    $('.textarea').summernote()
-                })
-            </script>
-@endsection
 
 
 
