@@ -24,7 +24,7 @@
                      <li><a href="/admin/comment"><i class="fa fa-comments"></i> <span>Comments</span></a></li><br>                     
                      <li><a href="/admin/place"><i class="fa fa-thumb-tack"></i> <span>Place</span></a></li><br>
                      <li><a href="/admin/faq"><i class="fa fa-question"></i> <span>Faq</span></a></li><br>
-                     <li><a href="/admin/message"><i class="fa fa-envelope-o"></i> <span>Messages</span></a></li><br>
+                     <li><a href="{{route('admin.message.index')}}"><i class="fa fa-envelope-o"></i> <span>Messages</span></a></li><br>
                      <li><a href="/admin/profile"><i class="fa fa-spinner"></i> <span>Profile</span></a></li><br>
                      <li><a href="/admin/setting"><i class="fa fa-wrench"></i> <span>Settings</span></a></li>
 

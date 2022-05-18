@@ -147,11 +147,6 @@ class AdminPlaceController extends Controller
     public function destroy(Place $place,$id)
     {
         //
-    //     $data = Place::find($id);
-    //    /*  Storage::delete($data->image);  tek bunu bırak yorum satırında olmazsa*/
-    //     $data->delete();
-    //     return redirect('admin/place');
-    // -------------------------------
         $data = Place::find($id);
         if ($data->image && Storage::disk('public')->exists($data->image)) {
             Storage::delete($data->image);

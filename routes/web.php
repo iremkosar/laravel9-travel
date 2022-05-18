@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\AdminPlaceController as AdminPlaceController;
 use App\Http\Controllers\Admin\ImageController as AdminImageController;
 use App\Http\Controllers\Admin\Setting as Setting;
+use App\Http\Controllers\Admin\MessageController as MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ use App\Http\Controllers\Admin\Setting as Setting;
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
 
 
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
@@ -63,10 +65,18 @@ Route::get('/show/{id}', 'show')->name('show');
  });
 
  //Admin Place Image Gallery Routes
-Route::prefix('/image')->name('image.')->controller(AdminImageController::class)->group(function () {
+    Route::prefix('/image')->name('image.')->controller(AdminImageController::class)->group(function () {
     Route::get('/{pid}', 'index')->name('index');
     Route::post('/store/{pid}', 'store')->name('store');
     Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
+     });
+
+     //Admin Message Routes
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+     Route::get('/show/{id}', 'show')->name('show');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
      });
 
 });
