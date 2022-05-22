@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',' Contact Form Messages List')
+@section('title',' Comment List')
 
 @section('content')
     <div class="card">
@@ -7,12 +7,12 @@
         <span style="margin:20px; margin-left:395px;" class="col-sm-3">
                   <ol class="breadcrumb " style="margin:20px;">
                     <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Message List</li>
+                    <li class="breadcrumb-item active">Comment List</li>
                   </ol>
                   </span>
 
         <div class="table-responsive">
-            <h3>Message List</h3>
+            <h3>Comment List</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -23,13 +23,16 @@
                             Name
                         </th>
                         <th>
-                            Phone
-                        </th>
-                        <th>
-                            Email
+                            Place
                         </th>
                         <th>
                             Subject
+                        </th>
+                        <th>
+                            Comment
+                        </th>
+                        <th>
+                            Rate
                         </th>
                         <th>
                             Status
@@ -46,19 +49,22 @@
                   @foreach( $data as $rs)
                   <tr>
                     <td>{{$rs->id}}</td>
-                    <td>{{$rs->name}}</td>
-                    <td>{{$rs->phone}}</td>
-                    <td>{{$rs->email}}</td>
+                    <td><a href="{{route('admin.place.show',['id'=>$rs->place_id])}}">
+                          {{$rs->place->title}}</a>
+                     </td>
+                    <td>{{$rs->user->name}}</a></td>
                     <td>{{$rs->subject}}</td>
+                    <td>{{$rs->comment}}</td>
+                    <td>{{$rs->rate}}</td>
                     <td>{{$rs->status}}</td>
 
                     <td>
-                    <a href="{{route('admin.message.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm"
+                    <a href="{{route('admin.comment.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm"
                        onclick="return !window.open(this.href, '','top=50 left=100 width=1100 height=700')">
                             Show
                     </a>
                    </td> 
-                    <td><a href="{{route('admin.message.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>       
+                    <td><a href="{{route('admin.comment.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>       
                     
                   </tr>
                   @endforeach

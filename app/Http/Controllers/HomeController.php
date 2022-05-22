@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Faq;
+use App\Models\Comment;
+
 
 
 
@@ -84,23 +86,36 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('info','Your message has been sent , Thank you.');
     }
 
+    public function storecomment(Request $request)
+    {
+       // dd($request); //Check your values
+        $data = new Comment();
+        $data->user_id = Auth::id(); //Logged id user id
+        $data->place_id = $request->input('place_id');
+        $data->subject = $request->input('subject');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+        $data->save();
+
+        return redirect()->route('place',['id'=>$request->input('place_id')])->with('success','Your comment has been sent , Thank you.');
+    }
+
     public function place($id)
     {
         $data= Place::find($id);
         $images=DB::table('images')->where('place_id',$id)->get();
+        $comments = Comment::where('place_id',$id)->where('status','True')->get();
         return view('home.place',[
             'data' => $data,
-            'images' => $images
+            'images' => $images,
+            'comments' => $comments
         ]);
     }
 
     public function login(){
-         return view(view:'home.login');
+        return view('auth.login');
     }
-
-    // public function about(){
-    //     return view(view:'home.about');
-    // }
 
     public function loginCheck(Request $request)
     {
@@ -112,7 +127,7 @@ class HomeController extends Controller
                 return redirect()->intended('home');
             }
 
-            return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+            return redirect()->intended('home')->withErrors(['email' => 'The provided credentials do not match our records.']);
         }
     }
 

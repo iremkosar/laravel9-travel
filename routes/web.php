@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ImageController as AdminImageController;
 use App\Http\Controllers\Admin\Setting as Setting;
 use App\Http\Controllers\Admin\MessageController as MessageController;
 use App\Http\Controllers\Admin\FaqController as FaqController;
+use App\Http\Controllers\Admin\CommentController as CommentController;
 use App\Models\Faq;
 
 /*
@@ -24,12 +25,14 @@ use App\Models\Faq;
 */
 
 // Home Page Routes
+Route::get('/home', [HomeController::class, 'index'])->name('home');
  Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/storemessage', [HomeController::class, 'storemessage'])->name('storemessage');
 Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
+Route::post('/storecomment', [HomeController::class, 'storecomment'])->name('storecomment');
 
 
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
@@ -92,6 +95,14 @@ Route::get('/show/{id}', 'show')->name('show');
     Route::get('/destroy/{id}', 'destroy')->name('destroy');
     Route::get('/show/{id}', 'show')->name('show');
      });
+
+     //Admin Comment Routes
+    Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+         Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+         });
 
 });
 

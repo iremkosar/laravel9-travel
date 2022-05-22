@@ -26,6 +26,7 @@
                 <div class="col-lg-8">
                     <!-- Blog Detail Start -->
                     <div class="pb-3">
+                        @include('home.messages')
                         <div class="blog-item">
                             <div class="position-relative">
                                 <img class="img-fluid w-100" src="{{Storage::url($data->image)}}" alt="">
@@ -36,6 +37,7 @@
                             </div>
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
+                              
                             <div class="d-flex mb-3">
                                 <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                 <span class="text-primary px-2">|</span>
@@ -55,41 +57,33 @@
                     <!-- Comment List Start -->
                     <div class="bg-white" style="padding: 30px; margin-bottom: 30px;">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
-                        <div class="media mb-4">
+                        @foreach($comments as $rs)
+                        <!-- <div class="media mb-4 row"> 
                             <img src="{{Storage::url($data->image)}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                    consetetur at sit.</p>
-                                <button class="btn btn-sm btn-outline-primary">Reply</button>
-                            </div>
-                        </div>
-                        <div class="media">
-                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                <h6><a href="">{{$rs->user->name}}</a> <small><i>{{$rs->created_at}}</i></small></h6>
+                                <div class="review-rating pull-right">
+                                <i class="fa fa-star @if ($rs->rate<1) -o empty @endif"></i>
+                                <i class="fa fa-star @if ($rs->rate<2) -o empty @endif" ></i>
+                                <i class="fa fa-star @if ($rs->rate<3) -o empty @endif"></i>
+                                <i class="fa fa-star @if ($rs->rate<4) -o empty @endif"></i>
+                                <i class="fa fa-star @if ($rs->rate<5) -o empty @endif"></i>
+                           </div>
+                            <strong>{{$rs->subject}}</strong>
+                            <p>{{$rs->comment}}</p>
+                        </div> -->
+
+                        <div class="media mb-3">
+                            <img src="{{Storage::url($data->image)}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
-                                <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                    Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                    consetetur at sit.</p>
-                                <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                <div class="media mt-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
-                                        style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                        <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                            labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                            eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                            ipsum diam tempor consetetur at sit.</p>
-                                        <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                    </div>
-                                </div>
+                            <h6><a href="">{{$rs->user->name}}</a> <small><i>{{$rs->created_at}}</i></small></h6>
+                            <strong>{{$rs->subject}}</strong>
+                                <p>{{$rs->comment}}</p>
                             </div>
                         </div>
+                        @endforeach
                     </div>
+                      
                     <!-- Comment List End -->
     
                     
@@ -194,6 +188,40 @@
                     </div>
     
                     <!-- Tag Cloud -->
+                    <div class="col-md-6">
+                        <h4 class="text-uppercase">Write Your Comment</h4>
+                        <p>Your email address will not be published.</p>
+                        <form class="review-form" action="{{route('storecomment')}}" method="post">
+                            @csrf
+                            <input class="input" type="hidden" name="place_id" value="{{$data->id}}">
+                            <div class="form-group">
+                                <input class="input" type="text" name="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="input" name="comment" placeholder="Your Comment"></textarea>
+                            </div>
+                            <div class="form-group">
+                            <div class="input-raiting">
+                                <strong class="text-uppercase">Your Rating:</strong>
+                                <div class="stars">
+                                <input type="radio" id="star5" name="rate" value="5"><label for="star5"></label>
+                                <input type="radio" id="star4" name="rate" value="4"><label for="star4"></label>
+                                <input type="radio" id="star3" name="rate" value="3"><label for="star3"></label>
+                                <input type="radio" id="star2" name="rate" value="2"><label for="star2"></label>
+                                <input type="radio" id="star1" name="rate" value="1"><label for="star1"></label>
+                           </div>
+                           </div>
+                           </div>
+                           @auth
+                           <button class="primary-btn">Submit</button>
+                           @else
+                           <a href="/login" class="primary-btn">For Submit Your Comment,Please Login</a>
+                           @endauth
+                       </form>
+                   </div>
+                </div>
+
+                    
                     
                 </div>
             </div>
