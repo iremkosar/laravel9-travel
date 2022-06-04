@@ -118,7 +118,7 @@ class HomeController extends Controller
         //echo"category places";
         //exit();
         $category= Category::find($id);
-        $places=DB::table('places')->where('category_id',$id)->get();
+        $places= DB::table('places')->where('category_id',$id)->get();
         return view('home.categoryplaces',[
             'data' => $category,
             'places' => $places
