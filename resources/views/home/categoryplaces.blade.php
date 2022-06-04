@@ -24,7 +24,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{route('place',['id' => $place->id])}}" class="btn btn-primary mt-1">Book Now</a>
+                    <a href="{{route('place', ['id' => $place->id])}}" class="btn btn-primary mt-1">Book Now</a>
                 </div>
    @endforeach
 </div>

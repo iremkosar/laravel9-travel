@@ -48,7 +48,7 @@
                             
                             @foreach($images as $rs)
                             <img class="img-fluid w-50 float-left mr-4 mb-2" src="{{Storage::url($rs->image)}}">
-                            <p>{{$data->detail}}</p>
+                            <p>{!!$data->detail!!}</p>
                             @endforeach
                         </div>
                     </div>

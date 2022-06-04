@@ -43,11 +43,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach( $comments as $rs)
+                  @foreach( $data as $rs)
                   <tr>
                     <td>{{$rs->id}}</td>
                     <td><a href="{{route('admin.place.show',['id'=>$rs->place_id])}}">
-                          {{$rs->place->title}}</a>
+                          {{$rs->title}}</a>
                      </td>
                     <td>{{$rs->subject}}</td>
                     <td>{{$rs->comment}}</td>
