@@ -1,6 +1,6 @@
 @extends('layouts.frontbase')
 
-@section('title', 'User Login | ')
+@section('title', 'User Registration Page | ')
 
 
  @section('content')
@@ -8,7 +8,7 @@
      <div class="container">
          <ul class="breadcrumb">
              <li><a href="{{route('home')}}">Home / </a></li>
-             <li class="active"> User Login</li>
+             <li class="active"> User Registration</li>
          </ul>
     </div>
 </div>  
@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-md-12">
-    @include('auth.login')
+    @include('auth.register')
 </div>
 </div>
 </div>

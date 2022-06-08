@@ -11,8 +11,8 @@
                      <div class="user_profle_side">
                         <div class="user_img"><img class="img-responsive" src="{{ asset('assets') }}/admin/images/layout_img/user_img.jpg" alt="#" /></div>
                         <div class="user_info">
-                           <h6>John David</h6>
-                           <p><span class="online_animation"></span> Online</p>
+                           <h6>{{ Auth::user()->name }}</h6>
+                           <a href="/logoutuser" class="text-uppercase">Logout</a>
                         </div>
                      </div>
                   </div>

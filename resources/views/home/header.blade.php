@@ -11,6 +11,30 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
+
+
+
+                 <div class="pull-right">
+                    
+                        @auth
+                        <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                            <div class="header-btns icon">
+                                <i class="fa fa-user-o"></i>
+                             </div>
+                             <strong class="text-uppercase">{{Auth::user()->name}} <i class="fa fa-caret-down"></i></strong>
+                              </div>
+                              <a href="/logoutuser" class="text-uppercase">Logout</a>
+                              @endauth
+                          @guest      
+
+                              <a href="/loginuser" class="text-uppercase">Login</a> / <a href="/registeruser" class="text-uppercase">Join</a>
+                          @endguest          
+                             
+                           
+                       </ul>
+                    </div>
+
+
                         <a class="text-primary px-3" href="">
                             <i class="fab fa-facebook-f"></i>
                         </a>

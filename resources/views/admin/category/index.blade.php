@@ -60,7 +60,7 @@
                             @endif
                     </td>
                     <td>{{$rs->status}}</td>
-                    <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
+                    <td><a href="{{route('admin.category.edit',['id' => $rs->id])}}" class="btn btn-block btn-info btn-sm">Edit</a></td>
                     <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-block btn-danger btn-sm" onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>       
                     <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}"class="btn btn-block btn-success btn-sm">Show</a></td> 
                   </tr>
