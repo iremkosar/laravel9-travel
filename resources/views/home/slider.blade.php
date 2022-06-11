@@ -4,7 +4,7 @@
              
             <div class="carousel-inner">
             @foreach ($sliderdata as $rs)
-                <div class="carousel-item  @php if($rs->id == 12) echo 'active'; @endphp">
+                <div class="carousel-item  {{ $loop->first ? 'active' : '' }}">
                     
                      <img class="w-100" src="{{Storage::url($rs->image)}}" style="width: 1920px; height: 1080px" alt="Image"> 
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">

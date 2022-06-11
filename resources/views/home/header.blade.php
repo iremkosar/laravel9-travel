@@ -24,7 +24,7 @@
                              <strong class="text-uppercase">{{Auth::user()->name}} <i class="fa fa-caret-down"></i></strong>
                               </div>
                               <a href="/logoutuser" class="text-uppercase">Logout</a>
-                              @endauth
+                        @endauth
                           @guest      
 
                               <a href="/loginuser" class="text-uppercase">Login</a> / <a href="/registeruser" class="text-uppercase">Join</a>
@@ -77,16 +77,10 @@
                         <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a> 
                         <a href="{{route('about')}}" class="nav-item nav-link">About</a>
                         <a href="{{route('references')}}" class="nav-item nav-link">References</a> 
-                        <a href="{{asset('assets')}}/service.html" class="nav-item nav-link">Services</a>
-                        <a href="{{asset('assets')}}/package.html" class="nav-item nav-link">Tour Packages</a>
-                       
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                            @foreach($mainCategories as $rs)
-                                <a href="{{asset('assets')}}/blog.html" class="dropdown-item">{{$rs->title}}</a>
-                            
-                            @endforeach
+                            @include('home._category')
                             </div>
                         </div>
                         <a href="{{route('faq')}}" class="nav-item nav-link">Faq</a>

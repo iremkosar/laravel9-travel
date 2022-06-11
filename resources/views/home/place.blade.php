@@ -45,7 +45,7 @@
                             </div>
                             
                             <h2 class="mb-3">{{$data->title}}</h2>
-                            <p>{{$data->detail}}</p>
+                            
                             @foreach($images as $rs)
                             <img class="img-fluid w-50 float-left mr-4 mb-2" src="{{Storage::url($rs->image)}}">
                             <p>{{$data->detail}}</p>
@@ -58,21 +58,7 @@
                     <div class="bg-white" style="padding: 30px; margin-bottom: 30px;">
                         <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
                         @foreach($comments as $rs)
-                        <!-- <div class="media mb-4 row"> 
-                            <img src="{{Storage::url($data->image)}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a href="">{{$rs->user->name}}</a> <small><i>{{$rs->created_at}}</i></small></h6>
-                                <div class="review-rating pull-right">
-                                <i class="fa fa-star @if ($rs->rate<1) -o empty @endif"></i>
-                                <i class="fa fa-star @if ($rs->rate<2) -o empty @endif" ></i>
-                                <i class="fa fa-star @if ($rs->rate<3) -o empty @endif"></i>
-                                <i class="fa fa-star @if ($rs->rate<4) -o empty @endif"></i>
-                                <i class="fa fa-star @if ($rs->rate<5) -o empty @endif"></i>
-                           </div>
-                            <strong>{{$rs->subject}}</strong>
-                            <p>{{$rs->comment}}</p>
-                        </div> -->
-
+                        
                         <div class="media mb-3">
                             <img src="{{Storage::url($data->image)}}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">

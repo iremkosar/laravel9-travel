@@ -105,7 +105,7 @@ class HomeController extends Controller
     {
         $data= Place::find($id);
         $images=DB::table('images')->where('place_id',$id)->get();
-        $comments = Comment::where('place_id',$id)->where('status','True')->get();
+        $comments = Comment::where('place_id', $id)->get();
         return view('home.place',[
             'data' => $data,
             'images' => $images,

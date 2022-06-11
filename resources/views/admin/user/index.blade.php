@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title',' Contact Form Messages List')
+@section('title',' User List')
 
 @section('content')
     <div class="card">
@@ -7,12 +7,12 @@
         <span style="margin:20px; margin-left:395px;" class="col-sm-3">
                   <ol class="breadcrumb " style="margin:20px;">
                     <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                    <li class="breadcrumb-item active">Message List</li>
+                    <li class="breadcrumb-item active">User List</li>
                   </ol>
                   </span>
 
         <div class="table-responsive">
-            <h3>Message List</h3>
+            <h3>User List</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -23,17 +23,12 @@
                             Name
                         </th>
                         <th>
-                            Phone
-                        </th>
-                        <th>
                             Email
                         </th>
                         <th>
-                            Subject
+                            Role
                         </th>
-                        <th>
-                            Status
-                        </th>
+                       
                         <th>
                             Show
                         </th>
@@ -47,13 +42,16 @@
                   <tr>
                     <td>{{$rs->id}}</td>
                     <td>{{$rs->name}}</td>
-                    <td>{{$rs->phone}}</td>
                     <td>{{$rs->email}}</td>
-                    <td>{{$rs->subject}}</td>
-                    <td>{{$rs->status}}</td>
-
                     <td>
-                    <a href="{{route('admin.message.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm"
+                      @foreach ($rs->roles as $role) 
+                          {{$role->name}}
+                      @endforeach
+                    </td>
+
+                   
+                    <td>
+                    <a href="{{route('admin.user.show',['id'=>$rs->id])}}" class="btn btn-block btn-success btn-sm"
                        onclick="return !window.open(this.href, '','top=50 left=100 width=1100 height=700')">
                             Show
                     </a>
