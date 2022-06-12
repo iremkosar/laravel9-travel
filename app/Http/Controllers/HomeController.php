@@ -113,6 +113,18 @@ class HomeController extends Controller
         ]);
     }
 
+    public function categoryplaces($id)
+    {
+        //echo"category places";
+        //exit();
+        $category= Category::find($id);
+        $places=DB::table('places')->where('category_id',$id)->get();
+        return view('home.categoryplaces',[
+            'data' => $category,
+            'places' => $places
+        ]);
+    }
+
     public function login(){
         return view('auth.login');
     }

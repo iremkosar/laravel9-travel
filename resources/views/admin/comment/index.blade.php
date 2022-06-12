@@ -20,9 +20,6 @@
                             Id
                         </th>
                         <th>
-                            Name
-                        </th>
-                        <th>
                             Place
                         </th>
                         <th>
@@ -46,13 +43,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                  @foreach( $data as $rs)
+                  @foreach( $comments as $rs)
                   <tr>
                     <td>{{$rs->id}}</td>
                     <td><a href="{{route('admin.place.show',['id'=>$rs->place_id])}}">
                           {{$rs->place->title}}</a>
                      </td>
-                    <td>{{$rs->user->name}}</a></td>
                     <td>{{$rs->subject}}</td>
                     <td>{{$rs->comment}}</td>
                     <td>{{$rs->rate}}</td>

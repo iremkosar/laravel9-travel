@@ -26,9 +26,12 @@
                               <a href="/logoutuser" class="text-uppercase">Logout</a>
                         @endauth
                           @guest      
-
-                              <a href="/loginuser" class="text-uppercase">Login</a> / <a href="/registeruser" class="text-uppercase">Join</a>
-                          @endguest          
+                               <a href="/loginuser" class="text-uppercase">Login</a> / <a href="/registeruser" class="text-uppercase">Join</a>
+                          @endguest   
+                             <ul>
+                          <a href="{{route('userpanel.index')}}"><i class="fa fa-user-o"></i>My Profile</a><br>
+                          <a href="{{route('userpanel.reviews')}}"><i class="fa fa-exchange"></i>My Reviews</a>
+                             </ul>       
                              
                            
                        </ul>

@@ -12,7 +12,9 @@ use App\Http\Controllers\Admin\MessageController as MessageController;
 use App\Http\Controllers\Admin\FaqController as FaqController;
 use App\Http\Controllers\Admin\CommentController as CommentController;
 use App\Http\Controllers\UserController as UserController;
+// use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Comment;
+use App\Http\Controllers\Admin\AdminUserController;
 
 
 
@@ -31,7 +33,7 @@ use App\Models\Faq;
 
 // Home Page Routes
 Route::get('/home', [HomeController::class, 'index'])->name('home');
- Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/references', [HomeController::class, 'references'])->name('references');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
@@ -124,6 +126,7 @@ Route::get('/show/{id}', 'show')->name('show');
     });
 
     //Admin User Routes
+    // Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/edit/{id}', 'show')->name('edit');
@@ -138,7 +141,9 @@ Route::get('/show/{id}', 'show')->name('show');
  });
 });
 
-Route::get('/place/{id}', [HomeController::class, 'place'])->name('place');
+Route::get('/place/{id}/{slug?}', [HomeController::class, 'place'])->name('place');
+Route::get('/categoryplaces/{id}/{slug?}', [HomeController::class, 'categoryplaces'])->name('categoryplaces');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

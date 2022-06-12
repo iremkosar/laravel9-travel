@@ -5,7 +5,7 @@
 @foreach ($parentCategories as $rs)
 
         <li>
-          <a class="dropdown-item" href="{{ route('categoryPlaces', ['id' => $rs->id , 'slug' => $rs->slug]) }}">{{ $rs->title }}</a>
+          <a class="dropdown-item" href="{{ route('categoryplaces', ['id' => $rs->id , 'slug' => $rs->slug]) }}">{{ $rs->title }}</a>
         @if (count($rs->children))
         <ul class="submenu dropdown-menu">
             @include('home._category_tree',['children' => $rs->children])
