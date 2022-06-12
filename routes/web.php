@@ -11,10 +11,8 @@ use App\Http\Controllers\Admin\Setting as Setting;
 use App\Http\Controllers\Admin\MessageController as MessageController;
 use App\Http\Controllers\Admin\FaqController as FaqController;
 use App\Http\Controllers\Admin\CommentController as CommentController;
-use App\Http\Controllers\Admin\AdminUserController;
-
-
-
+use App\Http\Controllers\UserController as UserController;
+use App\Http\Controllers\Comment;
 
 
 
@@ -53,6 +51,14 @@ Route::view('/deneme', 'home')->name('categoryPlaces');
 Route::post('/logincheck', [HomeController::class, 'loginCheck'])->name('loginCheck');
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 
+//USER AUTH CONTROL
+Route::middleware('auth')->group(function () {
+//USER PANEL ROUTES
+Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class)->group(function () {
+    Route::get('/','index')->name('index');
+    Route::get('/reviews','reviews')->name('reviews');
+    Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('commentdestroy');
+});
 //Admin Routes
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 Route::get('/', [AdminHomeController::class, 'index'])->name('index');
@@ -60,8 +66,6 @@ Route::get('/', [AdminHomeController::class, 'index'])->name('index');
 //General Routes
 Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
 Route::post('/setting/update', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
-
-
 
 //Admin Category Routes
 Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
@@ -131,7 +135,7 @@ Route::get('/show/{id}', 'show')->name('show');
         
 
     });
-
+ });
 });
 
 Route::get('/place/{id}', [HomeController::class, 'place'])->name('place');
